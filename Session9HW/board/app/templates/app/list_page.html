@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'app/list_page.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300&display=swap" rel="stylesheet">
+
+    <title>HyBoard:list</title>
+</head>
+<body>
+    <div class="frame">
+        <header>
+            <nav class="navigator">
+                <h3 class="site-name">HYLAND</h3>
+            </nav>
+            <div class="container">
+                <div class="title">
+                    <div class="title-name">혜영이의 자유로운 게시판</div>
+                </div>
+            </div>
+        </header>   
+
+        <h3 class="title-list">게시글 목록</h3>
+        <contents>
+        
+            {% if not posts %}
+            <p>게시글이 없습니다. 게시글을 입력해주세요.</p>
+            {% endif %}
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Title</th>
+                        <th>Date</th>
+                        <th>Hits</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for post in posts %}
+                    <tr>
+                        <td> <a class="post-title" href="{% url 'detail_page' post.pk %}">{{post.title}}</a></td>
+                        <td> {{post.date}}</td>
+                        <td> {{post.hits}}</td>
+                    </tr>
+                    {% endfor %}
+
+        <footer>
+            <a href="{% url 'create_page' %}">글쓰러가기</a>
+            
+        </footer>
+    </div>
+</body>
+</html>
+
+{% comment %} <div class="contents">
+    <h3 class="title-list">게시글 목록</h3>
+
+    {% if not posts %}
+    <p>게시글이 없습니다. 게시글을 입력해주세요.</p>
+    {% endif %}
+
+    {% for post in posts %}
+    <a class="post-title" href="{% url 'detail_page' post.pk %}"><br>
+    {{post.title}}
+    </a><br>
+    {% endfor %} {% endcomment %}
+
+    {% comment %} <br><br>
+</div> {% endcomment %}
