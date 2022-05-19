@@ -1,0 +1,27 @@
+{% extends 'app/base.html' %}
+    {% block css %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'app/create_page.css' %}">
+    {% endblock css %}
+   
+    {% block title%}
+    <title>HyBoard:create</title>
+    {% endblock title%}
+
+    {% block content%}
+    <br>
+    <form method="POST"> {% csrf_token %}
+        <label for="title">제목</label>
+        <br>
+        <input type="text" id="title" name="title" placeholder="제목을 입력해주세요" onfocus="this.placeholder=''" onblur="this.placeholder='제목을 입력해주세요'">
+        <br><br>
+        <label for="content">내용</label>
+        <br>
+        <textarea type="text" id="content" name="content" rows="5" cols="30" placeholder="내용을 입력해주세요" onfocus="this.placeholder=''" onblur="this.placebolder='내용을 입력해주세요"></textarea>
+        <br>
+        <button type="submit">작성</button>
+    </form>
+
+    <br><br>
+    <a href="{% url 'list_page' %}">목록으로 돌아가기</a>
+    {% endblock content %}

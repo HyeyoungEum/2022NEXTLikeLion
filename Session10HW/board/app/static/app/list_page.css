@@ -1,0 +1,56 @@
+.frame {
+    margin: 30px 150px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Noto Serif KR', serif;
+    margin: 0 auto;
+}
+
+.navigator {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.site-name {
+    margin : 0;
+    font-size: 30px;
+    font-weight: bold;
+    color: #C2B4AB
+
+}
+
+.title {
+    background-color: white;
+    height: 30px;
+    width: 300px;
+    border: 3px solid #C2B4AB;
+
+}
+
+.title-name {
+    margin: 0;
+    padding : 0;
+    position: relative;
+    left:15px;
+    font-size:15px;
+    top : 4px;
+    color: gray
+}
+
+.title-list{
+    position:relative;
+    top:8px;
+}
+.post-title{
+    font-size:14px;
+}
+
+a { text-decoration: none; color: gray; }
+a:visited { text-decoration: none; }
+a:hover { text-decoration: none; }
+a:focus { text-decoration: none; }
+a:hover, a:active { text-decoration: none; }
+
+.contents {
+    backgrond-color: yellow;
+}

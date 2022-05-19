@@ -1,0 +1,39 @@
+{% extends 'app/base.html' %}
+{% block css %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'app/detail_page.css' %}">
+{% endblock css %}
+
+{% block title%}
+<title>HyBoard:detail</title>
+{% endblock title%}
+    
+
+{% block content%}
+<div class="post-title">
+    <h3> 제목 : {{post.title}}</h3>
+    </div>
+
+    <div class="post-content">
+    <p> 내용<br>: {{post.content}}</p>
+    </div>
+
+    <a href="{% url 'edit_page' post.pk %}">수정하기</a>
+    <br>
+    <a href="{% url 'list_page' %}">목록으로 돌아가기</a>
+    <br><br>
+    <h3>댓글</h3>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="content" placeholder="댓글을 입력해주세요">
+        <button type="submit">작성하기</button>
+    </form>
+
+    {% for comment in post.comments.all %}
+        <li>
+            {{comment.content}}
+                <a href="{% url 'delete-comment' post.pk comment.pk %}">삭제</a>
+        </li>
+    {% endfor %}
+</div>
+{% endblock content %}
