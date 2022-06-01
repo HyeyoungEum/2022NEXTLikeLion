@@ -1,0 +1,39 @@
+{% extends './base.html' %}
+{% load static %}
+
+
+{% block title %}
+<title> HYTODO : NEW </title>
+{% endblock title %}
+
+
+{% block css %}
+<link type="text/css" rel="stylesheet" href="{% static 'new.css' %}">
+{% endblock css %}
+
+
+
+{% block content %}
+    <h3>새로 작성하기</h3>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div>
+            <label for="title">제목</label>
+            <input type="text" name="title" id="title" placeholder="할 일의 제목을 입력하세요">
+        </div>
+
+        <div>
+            <label for="content">내용</label>
+            <textarea name="content" id="content" cols="30" rows="10" placeholder="할 일의 설명을 입력하세요"></textarea>
+        </div>
+
+        <div>
+            <label for="deadline">마감기한</label>
+            <input type="date" name="deadline" id="deadline">
+        </div>
+        <button type="submit">작성하기</button>
+    </form>
+    <br>
+    <a href="{% url 'home' %}">홈으로</a>
+{% endblock content %}
+

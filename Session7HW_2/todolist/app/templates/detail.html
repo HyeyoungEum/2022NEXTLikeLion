@@ -1,0 +1,24 @@
+{% extends './base.html' %}
+{% load static %}
+{% block title %}
+<title> HYTODO : {{post.title}} </title>
+{% endblock title %}
+
+
+{% block css %}
+<link type="text/css" rel="stylesheet" href="{% static 'detail.css' %}">
+{% endblock css %}
+
+
+
+{% block content %}
+<h3>제목</h3>
+<p>{{post.title}}</p>
+<h3>내용</h3>
+<p>{{post.content}}</p>
+<h3>마감기한</h3>
+<p>{{post.deadline}}</p>
+<a href="{% url 'edit' post.pk %}">수정하기</a>
+<a href="{% url 'delete' post.pk %}">삭제하기</a>
+<a href="{% url 'home' %}">홈으로</a>
+{% endblock content %}
